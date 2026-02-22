@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+    
+  },
+  "keywords": [],
+  "author": "Md Ajaj",
+  "license": "ISC",
+  "description": "A media conversion service that enables downloading social media videos as MP4 or MP3.",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14",
+    "ytdlp-nodejs": "^3.4.4"
+  }
+}

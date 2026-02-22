@@ -1,0 +1,39 @@
+# Node.js dependencies
+node_modules
+frontend
+downloads
+/coverage
+lib-cov
+
+# Environment variables
+.env
+
+# Build artifacts
+build
+dist
+*.min.js
+*.tgz
+
+# Compiled binary addons
+build/Release
+
+# Testing and debugging
+npm-debug.log*
+yarn-debug.log*
+testem.json
+junit.xml
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# MongoDB specific files (if using local DB files)
+*.pid
+*.seed
+
+# Client/Frontend specific exclusions (if in a monorepo structure)
+client/build
+client/node_modules
+client/.parcel-cache
