@@ -62,7 +62,7 @@ function App() {
     const timeout = setTimeout(() => controller.abort(), TIMEOUT_MS);
 
     try {
-      const response = await fetch(`http://localhost:5000/v1/download/${type}`, {
+      const response = await fetch(`${API_URL}/v1/download/${type}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ videoUrl: url }),
