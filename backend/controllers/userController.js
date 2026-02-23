@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Cookie file path
-const cookiePath = path.join(__dirname, "../cookie.txt");
+const cookiePath = path.join(__dirname, "../cookies.txt");
 
 // Initialize ytdlp with cookie file if it exists
 const ytdlpOptions = {};
@@ -62,7 +62,7 @@ const downloadMedia = async (req, res) => {
             // Download video with audio merged
             result = await ytdlp
                 .download(finalUrl)
-                .output(filePath)
+                .output(downloadsPath)
                 .format({ filter: 'mergeaudio', quality: quality, type: type })
                 .cookies(cookiePath)
                 .on('progress', (p) => console.log(`${p.percentage_str}`))
