@@ -8,7 +8,19 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const ytdlp = new YtDlp();
+// Cookie file path
+const cookiePath = path.join(__dirname, "../cookie.txt");
+
+// Initialize ytdlp with cookie file if it exists
+const ytdlpOptions = {};
+if (fs.existsSync(cookiePath)) {
+    ytdlpOptions.cookiesFile = cookiePath;
+    console.log('✓ Cookie file found, using for authentication');
+} else {
+    console.warn('⚠️  Cookie file not found. Some videos may not be downloadable.');
+}
+
+const ytdlp = new YtDlp(ytdlpOptions);
 
 // Folder for downloads
 const downloadsPath = path.join(__dirname, "../downloads");
@@ -43,6 +55,7 @@ const downloadMedia = async (req, res) => {
                 .output(downloadsPath)
                 .extractAudio('mp3')
                 .audioQuality('best')
+                .cookies(cookiePath)
                 .on('progress', (p) => console.log(`${p.percentage_str}`))
                 .run();
         } else {
@@ -51,6 +64,7 @@ const downloadMedia = async (req, res) => {
                 .download(finalUrl)
                 .output(filePath)
                 .format({ filter: 'mergeaudio', quality: quality, type: type })
+                .cookies(cookiePath)
                 .on('progress', (p) => console.log(`${p.percentage_str}`))
                 .run();
         }

@@ -44,3 +44,26 @@ Thumbs.db
 client/build
 client/node_modules
 client/.parcel-cache
+
+# Docker
+docker-compose.override.yml
+
+
+
+# SSL certificates
+ssl/
+*.pem
+*.key
+*.crt
+
+# Backend downloads (keep directory structure)
+backend/downloads/*
+!backend/downloads/.gitkeep
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
